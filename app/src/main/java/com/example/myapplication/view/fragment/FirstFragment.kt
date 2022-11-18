@@ -4,6 +4,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.myapplication.BR
 import com.example.myapplication.R
+import com.example.myapplication.adapter.TestListAdapter
 import com.example.myapplication.base.BaseFragment
 import com.example.myapplication.util.DataBindingConfig
 import com.example.myapplication.vm.TestViewModel
@@ -23,8 +24,9 @@ class FirstFragment : BaseFragment() {
             R.layout.fragment_first,
             BR.vm,
             mViewModel
-        )
-            .addBindingParam(BR.click, ClickProxy())
+        ).addBindingParam(BR.click, ClickProxy())
+           // 配置adapter
+          .addBindingParam(BR.adapter, TestListAdapter(context))
     }
 
     override fun initView() {
